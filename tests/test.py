@@ -28,12 +28,12 @@ test_data = {
 }
 
 def test_hello_world():
-    assert run_script('hello_world.py') == 'Hello, world!'
+    assert run_script('source/hello.py') == 'Hello, World!'
 
 @pytest.mark.parametrize("input_data, expected", test_data['python_if_else'])
 def test_python_if_else(input_data, expected):
-    assert run_script('python_if_else.py', [input_data]) == expected
+    assert run_script('source/python_if_else.py', [input_data]) == expected
 
 @pytest.mark.parametrize("input_data, expected", test_data['arithmetic_operators'])
 def test_arithmetic_operators(input_data, expected):
-    assert run_script('arithmetic_operators.py', input_data).split('\n') == expected
+    assert run_script('source/arithmetic_operators.py', input_data).split('\n') == expected
