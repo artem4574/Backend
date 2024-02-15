@@ -1,18 +1,17 @@
 n = int(input())
-
-students = []
+records = []
 
 for _ in range(n):
     name = input()
-    score = float(input())
-    students.append([name, score])
+    grade = float(input())
+    records.append([name, grade])
 
-students.sort(key=lambda x: x[1])
+sorted_records = sorted(records, key=lambda x: x[1], reverse=True)
 
-second_highest_score = -1
+second_highest_grade = sorted(set(x[1] for x in sorted_records))[-2]
 
-for student in students:
-    if student[1] > students[0][1]: second_highest_score = student[1]
+second_highest_students = [record[0] for record in sorted_records if record[1] == second_highest_grade]
 
+second_highest_students.sort()
 
-for student in sorted([s[0] for s in students if s[1] == second_highest_score]): print(student)
+for student in second_highest_students: print(student)

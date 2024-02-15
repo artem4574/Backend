@@ -1,5 +1,12 @@
-a = int(input())
-b = int(input())
+while True:
+    a = int(input())
+    b = int(input())
 
-print(a // b)
-print(a / b)
+    try:
+        print(a // b)
+        print(a / b)
+    except ZeroDivisionError:
+        print('Type error: division by 0.')
+        raise
+
+
