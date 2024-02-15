@@ -5,16 +5,12 @@ for _ in range(n):
 
     command = input().split()
 
-    if command[0] == "insert": array.insert(int(command[1]), int(command[2]))
+    match(command[0]):
 
-    elif command[0] == "print": print(array)
-
-    elif command[0] == "remove": array.remove(int(command[1]))
-
-    elif command[0] == "append": array.append(int(command[1]))
-
-    elif command[0] == "sort": array.sort()
-
-    elif command[0] == "pop": array.pop()
-
-    elif command[0] == "reverse": array.reverse()
+        case "insert": array.insert(int(command[1]), int(command[2]))
+        case "print": print(array)
+        case "remove": array.remove(int(command[1]))
+        case "append": array.append(int(command[1]))
+        case "sort": array.sort()
+        case "pop": array.pop()
+        case"reverse": array.reverse()
