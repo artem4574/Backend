@@ -3,6 +3,7 @@ import pytest
 
 INTERPRETER = 'python'
 
+
 def run_script(filename, input_data=None):
     proc = subprocess.run(
         [INTERPRETER, filename],
@@ -12,6 +13,7 @@ def run_script(filename, input_data=None):
         check=False
     )
     return proc.stdout.strip()
+
 
 test_data = {
     'python_if_else': [
@@ -27,12 +29,15 @@ test_data = {
     ]
 }
 
+
 def test_hello_world():
     assert run_script('source/hello.py') == 'Hello, World!'
+
 
 @pytest.mark.parametrize("input_data, expected", test_data['python_if_else'])
 def test_python_if_else(input_data, expected):
     assert run_script('source/python_if_else.py', [input_data]) == expected
+
 
 @pytest.mark.parametrize("input_data, expected", test_data['arithmetic_operators'])
 def test_arithmetic_operators(input_data, expected):
