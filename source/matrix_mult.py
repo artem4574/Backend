@@ -1,8 +1,8 @@
 n = int(input())
 
-matrix_1 = [[int(input()) for i in range(n)] for i in range(n)]
-matrix_2 = [[int(input()) for i in range(n)] for i in range(n)]
-result_matrix = [[0 for i in range(n)] for i in range(n)]
+matrix_1 = [[int(input()) for _ in range(n)] for _ in range(n)]
+matrix_2 = [[int(input()) for _ in range(n)] for _ in range(n)]
+result_matrix = [[0 for _ in range(n)] for _ in range(n)]
 
 for i in range(n):
     for j in range(n):

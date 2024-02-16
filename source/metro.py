@@ -12,6 +12,3 @@ for i in time_list:
     if i[0] <= t <= i[1]: count+=1
 
 print(count)
-
-
-

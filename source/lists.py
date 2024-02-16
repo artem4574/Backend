@@ -1,5 +1,5 @@
 n = int(input())
-array = []
+array, ans = [], []
 
 for _ in range(n):
 
@@ -13,4 +13,5 @@ for _ in range(n):
         case "append": array.append(int(command[1]))
         case "sort": array.sort()
         case "pop": array.pop()
-        case"reverse": array.reverse()
+        case "reverse": array.reverse()
+

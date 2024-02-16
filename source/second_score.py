@@ -1,6 +1,4 @@
-n = int(input())
+input()
 scores = set(map(int, input().split()))
 
-scores = [score for score in scores if score != max(scores)]
-
-print(max(scores))
+print(max([score for score in scores if score != max(scores)]))
