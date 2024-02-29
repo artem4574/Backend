@@ -7,7 +7,7 @@ result_matrix = [[0 for _ in range(n)] for _ in range(n)]
 for i in range(n):
     for j in range(n):
         for k in range(n):
-            result_matrix[i][j] += matrix_1[i][k] * matrix_1[k][j]
+            result_matrix[i][j] += matrix_1[i][k] * matrix_2[k][j]
 
 for i in result_matrix:
     print(i, end='')

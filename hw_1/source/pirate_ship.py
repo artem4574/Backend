@@ -1,34 +1,22 @@
-def knapsack_max_value(weights, values, capacity):
+n, m = map(int, input().split())
 
-    dp = [[0] * (capacity + 1) for _ in range(len(values) + 1)]
+tovars = {}
 
-    for i in range(1, len(values) + 1):
-        for w in range(capacity + 1):
-            if weights[i - 1] <= w: dp[i][w] = max(dp[i - 1][w], values[i - 1] + dp[i - 1][w - weights[i - 1]])
-            else: dp[i][w] = dp[i - 1][w]
+for _ in range(m):
+    key, weight, value = input().split()
+    tovars[key] = [int(value) / int(weight), int(weight)]
 
-    result = []
-    w = capacity
+tovars = dict(sorted(tovars.items(), key=lambda x: x[1][0], reverse=True))
 
-    for i in range(len(values), 0, -1):
-        if dp[i][w] != dp[i - 1][w]:
-            result.append(i - 1)
-            w -= weights[i - 1]
+free = n
+space = 0
 
-    return result
+for key, value in tovars.items():
+    price = value[0] * value[1]
+    selected_quantity = min(free, value[1])
+    print(key, selected_quantity, round(selected_quantity * value[0], 2))
+    free -= selected_quantity
+    space += value[1]
 
-
-n, capacity = map(int, input().split())
-weights, values = [], []
-
-for _ in range(n):
-    name, w, v = input().split()
-    weights.append(int(w))
-    values.append(int(v))
-
-selected_items = knapsack_max_value(weights, values, capacity)
-
-for item in reversed(selected_items):
-    w = min(capacity, weights[item])
-    v = values[item] * (w / weights[item])
-    print(f"{item} {w} {v:.2f}")
+    if free == 0:
+        break

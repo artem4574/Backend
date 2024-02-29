@@ -15,3 +15,4 @@ for _ in range(n):
         case "pop": array.pop()
         case "reverse": array.reverse()
 
+

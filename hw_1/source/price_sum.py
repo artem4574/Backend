@@ -20,4 +20,4 @@ def calculate_total_expenses(filename):
 
 result = calculate_total_expenses('../files/products.csv')
 
-print(f"{result[0]: .2f} {result[1]: .2f} {result[2]: .2f}")
+print(round(result[0], 2),  round(result[1], 2),  round(result[2], 2))
