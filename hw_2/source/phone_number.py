@@ -17,11 +17,10 @@ def format_phone_number(number):
     return formatted_number
 
 
-if __name__ == "__main__":
-    n = int(input())
-    ans = []
-    for _ in range(n):
-        phone_number = input().strip()
-        ans.append(format_phone_number(phone_number))
+def sort_phone(arr):
+    return sorted([format_phone_number(i) for i in arr])
 
-    for i in ans: print(i)
+
+if __name__ == '__main__':
+    list_phones = [input() for _ in range(int(input()))]
+    print(sort_phone(list_phones), sep='\n')

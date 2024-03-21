@@ -20,7 +20,7 @@ def search_file_recursive(target_file, current_directory="."):
 
 if __name__ == "__main__":
 
-    if len(sys.argv) != 2: print("Пожалуйста, укажите имя файла в качестве аргумента командной строки.")
+    if len(sys.argv) != 2: print("Enter filename:")
     else:
         file_name = sys.argv[1]
 

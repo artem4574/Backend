@@ -38,4 +38,4 @@ def greeting_format(name):
     return f'Hello, {name}!'
 
 
-greeting_format('test.log')
+# greeting_format('test.log')

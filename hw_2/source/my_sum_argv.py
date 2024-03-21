@@ -1,13 +1,13 @@
 import sys
 
-
-def summer(*args): return sum(args)
-
+def summer(arr):
+    return sum(map(int, arr))
 
 if __name__ == "__main__":
-
-    numbers = [float(arg) for arg in sys.argv[1:]]
-    
-    print(summer(*numbers))
-
-# python3 hw_2\source\my_sum_argv.py 1 2 3 4 5
+    args = sys.argv[1:]
+    if not args:
+        print("Usage: python my_sum_argv.py num1 num2 num3  ")
+    else:
+        nums = [int(num) for num in args]
+        result = summer(nums)
+        print(result)

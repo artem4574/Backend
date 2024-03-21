@@ -1,6 +1,5 @@
 import math
 
-
 class Complex(object):
     def __init__(self, real, imaginary):
         self.real = real
@@ -13,27 +12,25 @@ class Complex(object):
         return Complex(self.real - no.real, self.imaginary - no.imaginary)
 
     def __mul__(self, no):
-        real_part = self.real * no.real - self.imaginary * no.imaginary
-        imag_part = self.real * no.imaginary + self.imaginary * no.real
-        return Complex(real_part, imag_part)
+        real = self.real * no.real - self.imaginary * no.imaginary
+        imaginary = self.real * no.imaginary + self.imaginary * no.real
+        return Complex(real, imaginary)
 
     def __truediv__(self, no):
-        conjugate_no = Complex(no.real, -no.imaginary)
-        denominator = no * conjugate_no
-        result = self * conjugate_no
-        result.real /= denominator.real
-        result.imaginary /= denominator.real
-        return result
+        znamenat = no.real**2 + no.imaginary**2
+        real = (self.real * no.real + self.imaginary * no.imaginary) / znamenat
+        imaginary = (self.imaginary * no.real - self.real * no.imaginary) / znamenat
+        return Complex(real, imaginary)
 
     def mod(self):
         return Complex(math.sqrt(self.real**2 + self.imaginary**2), 0)
 
     def __str__(self):
         if self.imaginary == 0:
-            result = "%.2f+0.00i" % self.real
+            result = "%.2f+0.00i" % (self.real)
         elif self.real == 0:
             if self.imaginary >= 0:
-                result = "0.00+%.2fi" % self.imaginary
+                result = "0.00+%.2fi" % (self.imaginary)
             else:
                 result = "0.00-%.2fi" % (abs(self.imaginary))
         elif self.imaginary > 0:
@@ -41,11 +38,11 @@ class Complex(object):
         else:
             result = "%.2f-%.2fi" % (self.real, abs(self.imaginary))
         return result
-
+def comp_operate(x, y):
+    return list(map(str, [x+y, x-y, x*y, x/y, x.mod(), y.mod()]))
 
 if __name__ == '__main__':
     c = map(float, input().split())
     d = map(float, input().split())
     x = Complex(*c)
     y = Complex(*d)
-    print(*map(str, [x+y, x-y, x*y, x/y, x.mod(), y.mod()]), sep='\n')

@@ -11,11 +11,11 @@ def av_score(scores):
     return tuple(av_score)
 
 
-n, x = map(int, input().split())
+"""n, x = map(int, input().split())
 input_scores = []
 for _ in range(x):
     sub_score = list(map(float, input().split()))
     input_scores.append(sub_score)
 
 answer = av_score(input_scores)
-for avg_score in answer: print(avg_score)
+for avg_score in answer: print(avg_score)"""

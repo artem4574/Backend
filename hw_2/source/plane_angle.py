@@ -48,4 +48,4 @@ if __name__ == '__main__':
     c = Point(25, 13, 9)
     d = Point(10, 11, 12)
 
-    print(plane_angle(a, b, c, d))
+    # print(plane_angle(a, b, c, d))
