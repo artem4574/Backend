@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card my-5">
+        <div class="card-body">
+            <h2 class="card-title">{{ post.title }}</h2>
+            <p class="card-text">{{ post.author }}, {{ post.date.strftime('%d.%m.%Y') }}</p>
+            <img class="card-img-top" src="{{ url_for('static', filename='images/' + post.image_id) }}" alt="Card image cap">
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ post.text }}</p> 
+        </div>
+        <form class="mt-4">
+            <div class="form-group">
+                <label for="commentText">Оставьте комментарий</label>
+                <textarea class="form-control" id="commentText" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+        <div class="card-body">
+            <h5 class="card-title">Комментарии</h5>
+            {% for comment in post.comments %}
+                <div class="media my-3">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0">
+                            <div class="avatar-placeholder"></div>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h5>{{ comment.author }}</h5>
+                            <p>{{ comment.text }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
